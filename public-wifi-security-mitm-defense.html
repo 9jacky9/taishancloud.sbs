@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公共 Wi-Fi 的中间人攻击风险与防范策略 - 泰山云</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .article-body { padding: 120px 5%; max-width: 800px; margin: 0 auto; min-height: 80vh; }
+        .article-body h1 { font-size: 2.5rem; margin-bottom: 2rem; color: #111827; line-height: 1.3; }
+        .article-body h2 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: #1f2937; }
+        .article-body h3 { font-size: 1.4rem; margin: 1.5rem 0 1rem; color: #374151; }
+        .article-body p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; color: #4b5563; }
+        .article-body a { color: #eab308 !important; text-decoration: underline; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header class="h-nav">
+        <a href="index.html" class="logo" style="text-decoration:none; color:inherit;">
+            <svg width="32" height="32" viewBox="0 0 100 100"><path d="M50 0L100 100H0L50 0Z" fill="none" stroke="#eab308" stroke-width="8"/><path d="M50 30L80 100H20L50 30Z" fill="none" stroke="#000" stroke-width="4"/></svg>
+            <strong>泰山云</strong>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html#features">极速响应</a>
+            <a href="index.html#streaming">解锁全球</a>
+            <a href="index.html#pricing">超值订阅</a>
+            <a href="index.html#faq">常见解答</a>
+            <a href="tech-radar.html">光速前沿</a>
+        </nav>
+        <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank" class="btn btn-main btn-sm">免费开启</a>
+    </header>
+    <div class="article-body">
+        <h1>公共 Wi-Fi 的中间人攻击风险与防范策略</h1>
+        
+        <h2>便利背后的隐患：公共无线的安全脆弱性</h2>
+        <p>在咖啡厅、机场、酒店等公共场所，免费提供的 Wi-Fi 网络为人们的工作和娱乐提供了极大的便利。然而，这些缺乏严格访问控制和加密保护的公共无线网络，往往是网络攻击者进行窃听和篡改数据的温床。其中，中间人攻击（Man-in-the-Middle, MitM）是最常见且最具破坏性的威胁之一。</p>
+        <h2>中间人攻击的原理解析</h2>
+        <p>中间人攻击的核心在于，攻击者成功地将自己置于受害者设备与目标服务器（或网关）的通信链路之中。受害者以为自己在直接与服务器通信，而实际上所有的网络流量都在经过攻击者的设备。</p>
+        <h3>ARP 欺骗（ARP Spoofing）</h3>
+        <p>在局域网中，设备通过 ARP 协议将 IP 地址映射为 MAC 地址。攻击者可以通过发送伪造的 ARP 响应包，让受害者的设备误认为攻击者的 MAC 地址就是网关的 MAC 地址。这样，受害者的所有外网请求都会被发送到攻击者的机器上。有关更高级的防护，可以参考专业的<a href="https://tizilab.net/" target="_blank">局域网安全防御方案</a>进行网络设备的加固。</p>
+        <h3>流氓 AP（Rogue Access Point）与邪恶双子星</h3>
+        <p>除了 ARP 欺骗，攻击者还可以搭建一个名称（SSID）与合法公共 Wi-Fi 相同或相似的伪造热点（Evil Twin）。一旦用户的设备自动连接到这个流氓 AP，攻击者便完全控制了用户的网络接入点，可以轻易拦截所有未加密的流量。</p>
+        <h2>数据窃取与篡改的危害</h2>
+        <p>在成功实施中间人攻击后，攻击者的目标通常是窃取敏感信息或注入恶意内容。如果用户通过 HTTP（而非 HTTPS）访问网站，其登录凭证、Cookie、浏览记录等信息将以明文形式暴露在攻击者面前。</p>
+        <h3>SSL 剥离（SSL Stripping）</h3>
+        <p>即使目标网站支持 HTTPS，攻击者也可以使用 SSL 剥离技术。当用户输入一个网址时，攻击者拦截请求，与目标服务器建立 HTTPS 连接，但向用户返回一个未加密的 HTTP 页面。普通用户如果未留意浏览器地址栏的锁形图标，极易在 HTTP 页面中输入密码，从而导致信息泄露。</p>
+        <h2>全面的防范策略</h2>
+        <p>面对公共 Wi-Fi 的种种安全风险，用户和企业必须采取多层次的防御措施来保护数据安全。</p>
+        <h3>始终使用加密隧道技术</h3>
+        <p>在公共网络中最有效的数据保护手段是使用虚拟专用网（VPN）等加密隧道技术。VPN 会对所有离开设备的数据进行高强度的加密，即使攻击者截获了数据包，也只能看到一堆乱码，无法解析其中的真实内容。</p>
+        <h3>强制 HTTPS 与 HSTS 策略</h3>
+        <p>用户应养成检查浏览器安全标志的习惯。同时，网站开发者应广泛部署 HTTPS，并启用 HTTP 严格传输安全（HSTS）策略。HSTS 强制浏览器始终通过加密的 HTTPS 连接访问网站，有效防止了 SSL 剥离攻击。</p>
+        <h3>谨慎的网络行为与设备设置</h3>
+        <p>用户在连接公共 Wi-Fi 时，应避免进行网银转账、登录重要账号等高风险操作。此外，应关闭设备的“自动连接到未知网络”功能，并及时安装操作系统和应用程序的安全补丁。只有保持高度的安全意识，才能在享受数字便利的同时，守护好个人的信息资产。</p>
+        
+    </div>
+    <footer class="f-nav">
+        <a href="sitemap.html" target="_blank">网站地图</a>
+        <a href="about.html" target="_blank">关于我们</a>
+        <a href="terms.html" target="_blank">服务条款</a>
+        <a href="privacy.html" target="_blank">隐私政策</a>
+    </footer>
+</body>
+</html>
