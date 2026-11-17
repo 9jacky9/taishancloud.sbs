@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小团队远程办公的网络安排：账号、协作工具与稳定线路 - 泰山云</title>
-<meta name="description" content="三五个人的小团队需要稳定访问海外协作工具，网络怎么安排？从账号管理、协作软件、线路选择与成本控制四个方面给出实用建议。">
-    <link rel="stylesheet" href="style.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>小型分支SD-WAN怎么验收：双线路切换与业务连续性测试</title>
+<meta content="小型分支SD-WAN怎么验收：双线路切换与业务连续性测试，从实际任务出发提供具体步骤、判断分支和验收记录，避免被单一指标误导。" name="description"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
         .article-body { padding: 120px 5%; max-width: 800px; margin: 0 auto; min-height: 80vh; }
         .article-body h1 { font-size: 2.5rem; margin-bottom: 2rem; color: #111827; line-height: 1.3; }
         .article-body h2 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: #1f2937; }
@@ -16,39 +17,47 @@
     </style>
 </head>
 <body>
-    <header class="h-nav">
-        <a href="index.html" class="logo" style="text-decoration:none; color:inherit;">
-            <svg width="32" height="32" viewBox="0 0 100 100"><path d="M50 0L100 100H0L50 0Z" fill="none" stroke="#eab308" stroke-width="8"/><path d="M50 30L80 100H20L50 30Z" fill="none" stroke="#000" stroke-width="4"/></svg>
-            <strong>泰山云</strong>
-        </a>
-        <nav class="nav-links">
-            <a href="index.html#features">极速响应</a>
-            <a href="index.html#streaming">解锁全球</a>
-            <a href="index.html#pricing">超值订阅</a>
-            <a href="index.html#faq">常见解答</a>
-            <a href="tech-radar.html">光速前沿</a>
-        </nav>
-        <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank" class="btn btn-main btn-sm">免费开启</a>
-    </header>
-    <div class="article-body">
-<h1>小团队远程办公的网络安排：账号、协作工具与稳定线路</h1>
-<p>小团队没有专职网络人员，更需要一套简单、稳定、容易维护的办法。</p>
-<h2>账号与设备数</h2>
-<p>先统计同时在线的人数和设备数量，再选择对应的套餐，避免因为设备数不足而临时抢位置。离职或换设备时及时调整。</p>
-<h2>常用协作工具的访问</h2>
-<p>Google 文档、Slack、Notion、Zoom 等工具对稳定性要求较高。建议把这些工具放在固定的节点，减少频繁切换。</p>
-<h2>线路选择</h2>
-<p>多个成员位于不同城市时，不同入口表现可能不同。让每个人各自测试，再统一选一个多数人表现良好的节点。</p>
-<h2>成本控制</h2>
-<ul><li>按月购买，观察一两个月后再决定是否续长期套餐。</li><li>大文件传输放在非高峰时段。</li><li>设定使用规范，避免私人下载占用流量。</li></ul>
-<h2>备用方案</h2>
-<p>准备一个备用节点，约定好出问题时切换的方式，团队就不会因为一次故障而停工。</p>
-    </div>
-    <footer class="f-nav">
-        <a href="sitemap.html" target="_blank">网站地图</a>
-        <a href="about.html" target="_blank">关于我们</a>
-        <a href="terms.html" target="_blank">服务条款</a>
-        <a href="privacy.html" target="_blank">隐私政策</a>
-    </footer>
+<header class="h-nav">
+<a class="logo" href="index.html" style="text-decoration:none; color:inherit;">
+<svg height="32" viewbox="0 0 100 100" width="32"><path d="M50 0L100 100H0L50 0Z" fill="none" stroke="#eab308" stroke-width="8"></path><path d="M50 30L80 100H20L50 30Z" fill="none" stroke="#000" stroke-width="4"></path></svg>
+<strong>泰山云</strong>
+</a>
+<nav class="nav-links">
+<a href="index.html#features">极速响应</a>
+<a href="index.html#streaming">解锁全球</a>
+<a href="index.html#pricing">超值订阅</a>
+<a href="index.html#faq">常见解答</a>
+<a href="tech-radar.html">光速前沿</a>
+</nav>
+<a class="btn btn-main btn-sm" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">免费开启</a>
+</header>
+<div class="article-body"><h1>小型分支SD-WAN怎么验收：双线路切换与业务连续性测试</h1><div data-swc-article-body="2026-11-16"><h2>两条宽带不自动等于可靠组网</h2>
+<p>分支办公室安装两条接入后，最常见的误解是只要一条断开，所有业务都会无感恢复。实际上，故障检测、选路策略、会话状态和目标应用各有条件。软件定义广域网可以集中管理多地点连接，但能否满足业务需要，仍要通过具体任务验收，不能用设备上线或隧道变绿代替。</p>
+<p>先区分公司内部系统、互联网服务与访客上网。它们可能采用不同路径、权限和恢复目标，不应全部放进一条默认策略后就宣布组网完成。以下流程适用于经授权的测试窗口或隔离环境，不建议在正在处理真实订单的分支随意拔掉线路。</p>
+<h2>一、列出应用与恢复目标</h2>
+<p>制作一张六列表：应用名称、使用人员、正常路径、备用路径、可接受中断、成功标记。例如文件只读查询可以重新打开，表单提交需要确认是否已经保存，语音会议可能需要重新加入。不同应用的成功标记必须写清，否则设备端显示切换完成而业务人员仍无法工作。</p>
+<p>还要注明两条线路是否共享同一入楼光纤、运营商或供电。两个账单不一定代表完全独立的故障域；共同的接入点或电源故障仍可能同时影响两条线路。把已知共同环节标出来，比单纯统计线路数量更有助于评估可靠性。</p>
+<h2>二、验证正常情况下的路径</h2>
+<p>第一步，选择一台测试电脑和一个测试账户。第二步，分别打开三类代表应用，完成只读查询或测试草稿保存。第三步，在网关会话与链路监控中核对实际出站。第四步，记录策略名称、主备线路和应用结果，确认配置意图与实际执行一致。</p>
+<p>若只看设备总体流量曲线，很难知道某个应用走哪条线路。需要将目标地址、端口或已识别应用与会话对应。应用分类不明确时，应先用小范围规则验证，不为了方便把整段地址都强制改路，避免影响同一地址上承载的其他服务。</p>
+<h2>三、在隔离窗口模拟单线不可用</h2>
+<p>由管理员按设备支持的方法停用测试路径或在测试环境断开一条线路，记录故障开始时间。观察健康检测何时判定不可用、策略何时切换、应用何时恢复。三者通常不完全相同，报告里应分别记录，而不是只给一个含糊的“切换很快”。</p>
+<p>对正在打开的只读页面先尝试刷新，对测试草稿先查询是否已经保存，再决定是否重提。不能用重复提交真实业务数据来检验恢复，否则网络测试可能制造重复订单。语音应用则记录是否自动续接、是否缺失一段声音以及是否需要重新加入。</p>
+<h2>四、别漏掉线路恢复后的行为</h2>
+<p>主线路恢复时，设备可能立即切回，也可能等待稳定后再切换。频繁上下波动会导致路径反复改变，因此需要观察恢复保持条件与现有会话处理。测试结束前让线路经历稳定恢复，确认不会在两条路径之间来回摆动，给业务造成第二轮中断。</p>
+<p>如果新会话已经回到主线，而旧会话仍停留在备用线，应确认这是否符合设备设计与业务要求。不能只根据一台电脑的新网页判断所有会话都已回切。将新建连接与已有连接分开验收，尤其适用于长时间远程桌面和文件传输。</p>
+<h2>五、给备用容量设置现实边界</h2>
+<p>备用线路可能只能承载关键业务，无法同时支持所有更新、视频和备份。把最低必要应用列为优先恢复对象，非关键下载在故障窗口暂停。采用已有设备的策略时，先在小范围验证优先级与带宽限制是否生效，再逐步扩大，不把配置界面显示成功当作应用验收。</p>
+<p>普通外部服务可通过<a href="https://dajichang.mom/">分支办公备用线路比较</a>整理地区、流量与设备支持等信息，但这类共享服务比较不能代替企业专线合同或内部网络方案。涉及单位系统时，应由负责人确认连接边界、支持责任与采购要求，再决定是否能进入候选。</p>
+<p>演练前还应指定现场联系人与远端管理员，约定停止条件。只要出现测试范围外的业务异常，就恢复原配置并保存时间线。远端管理本身若依赖正在测试的线路，应准备独立恢复渠道，避免管理员失联后无人能够把测试设备恢复正常。</p>
+<h2>六、交付能用于故障演练的记录</h2>
+<p>最终记录正常路径、故障检测、切换过程、业务恢复、主线回归和容量限制六部分。每个问题写明负责人和下一次复核条件。若某个应用只能人工恢复，就把具体操作写入分支值班卡，而不是在报告中用“基本通过”掩盖缺口。</p>
+<p>每次线路、策略或关键应用变化后，重测受影响的场景。组网的价值是让人知道故障时该怎么继续工作，而不只是增加更多链路。能够解释成功与失败边界的验收，比笼统承诺永不中断更可靠。</p></div></div>
+<footer class="f-nav">
+<a href="sitemap.html" target="_blank">网站地图</a>
+<a href="about.html" target="_blank">关于我们</a>
+<a href="terms.html" target="_blank">服务条款</a>
+<a href="privacy.html" target="_blank">隐私政策</a>
+</footer>
 </body>
 </html>
