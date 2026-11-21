@@ -1,0 +1,1 @@
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.mobile-nav[open]').forEach(x=>{x.open=false;x.querySelector('summary').focus()})}});document.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>{a.closest('details').open=false}));
